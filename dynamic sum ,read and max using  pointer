@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int n;
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    int *p= (int *)malloc(n * sizeof(int)); 
+   
+
+    
+    for (int i = 0; i < n; i++) {
+         printf("Enter %d integers:\n", n);
+        scanf("%d", (p + i)); 
+    }
+
+    int sum = 0, max = *p; 
+    for (int i = 0; i < n; i++) {
+        sum += *(p + i);           
+        if (*(p + i) > max)        
+            max = *(p + i);
+    }
+
+    printf("Sum = %d\n", sum);
+    printf("Maximum = %d\n", max);
+
+    free(p); 
+    return 0;
+}
